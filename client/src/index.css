@@ -921,3 +921,246 @@ footer {
 .badge-error {
   color: #dc3545;
 }
+
+/* =====================
+   Versao Page
+   ===================== */
+
+.versao-page {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Cabeçalho da página de versão */
+.versao-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.versao-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Cards */
+.versao-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.versao-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.versao-card-icon {
+  font-size: 0.875rem;
+  color: var(--accent-primary);
+  display: flex;
+  align-items: center;
+}
+
+.versao-card-label {
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.versao-card-body {
+  padding: 0.25rem 0;
+}
+
+/* Linhas de informação */
+.versao-info-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.6rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  gap: 0.75rem;
+}
+
+.versao-info-row:last-child {
+  border-bottom: none;
+}
+
+.versao-info-label {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  flex-shrink: 0;
+}
+
+.versao-info-value {
+  font-size: 0.8125rem;
+  color: var(--text-primary);
+  text-align: right;
+  word-break: break-all;
+}
+
+.versao-monospace {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  text-align: right;
+  word-break: break-all;
+}
+
+.versao-version-text {
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--accent-primary);
+}
+
+.versao-muted {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+/* Badges */
+.versao-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.versao-badge-online {
+  background: #22c55e22;
+  color: #22c55e;
+  border: 1px solid #22c55e44;
+}
+
+.versao-badge-offline {
+  background: #ef444422;
+  color: #ef4444;
+  border: 1px solid #ef444444;
+}
+
+.versao-badge-checking {
+  background: #f59e0b22;
+  color: #f59e0b;
+  border: 1px solid #f59e0b44;
+}
+
+.versao-badge-database {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-color);
+}
+
+/* Botões de ação */
+.versao-actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  padding-top: 0.25rem;
+}
+
+.versao-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.versao-btn-primary {
+  background: var(--accent-primary);
+  color: white;
+}
+
+.versao-btn-primary:hover {
+  opacity: 0.9;
+}
+
+.versao-btn-secondary {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+}
+
+.versao-btn-secondary:hover:not(:disabled) {
+  background: var(--bg-primary);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+}
+
+.versao-btn-secondary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Ícone spin para loading */
+.spin {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Link do header para /versao */
+.header-versao-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.header-versao-link:hover {
+  background: var(--bg-primary);
+  color: var(--accent-primary);
+  border-color: var(--accent-primary);
+}
+
+@media (max-width: 640px) {
+  .versao-page {
+    padding: 1rem;
+  }
+
+  .versao-actions {
+    flex-direction: column;
+  }
+
+  .versao-btn {
+    justify-content: center;
+  }
+}
