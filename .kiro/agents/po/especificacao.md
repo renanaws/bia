@@ -12,3 +12,6 @@ Esse arquivo deve ter o seguinte formato [025]-[feat]-[resumo].md Onde:
 O Local que o arquivo deve ser criado, sera na pasta bia/.kiro/tasks
 
 - Voce tambem devera gerenciar o estado desses arquivos criados, ou seja , quando uma tarefa for finalizada, voce vai mover esse arquivo para uma pasta na mesma folder acima chamada done/
+
+- Sempre que voce criar uma nova task, voce me sinaliza para que eu possa revisar.
+- Apos eu dizer que esta ok a revisao voce pergunta se ja pode ser feito o commit e push dela para o repositorio remoto. ( lemvre de fazer o commit e push da task e do sequencial).
