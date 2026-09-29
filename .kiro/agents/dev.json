@@ -7,7 +7,12 @@
   "toolAliases": {},
   "toolsSettings": null,
   "toolSchema": null,
-  "mcpServers": {},
+  "mcpServers": {
+       "shadcn": {
+         "command": "npx",
+         "args": ["-y", "shadcn@latest", "mcp"]
+       }
+  },
   "useLegacyMcpJson": false,
   "resources": [
     "file://AmazonQ.md",

@@ -3,11 +3,21 @@
   "description": "",
   "prompt": null,
   "welcomeMessage": null,
-  "tools": [],
+  "tools": ["*"],
   "toolAliases": {},
   "toolsSettings": null,
   "toolSchema": null,
-  "mcpServers": {},
+  "mcpServers": {
+       "playwright": {
+         "command": "npx",
+         "args": [
+           "@playwright/mcp@latest"
+        ],
+        "env": {},
+        "timeout": 12000,
+        "disable": false 
+       }
+  },
   "useLegacyMcpJson": false,
   "resources": [
     "file://AmazonQ.md",
@@ -15,6 +25,6 @@
     "file://.kiro/rules/**/*.md"
 
   ],
-  "allowedTools": [],
+  "allowedTools": ["read", "write", "shell", "web_fetch", "playwright_navigate", "playwright_screenshot", "playwright_click", "playwright_fill", "playwright_select", "playwright_hover", "playwright_evaluate", "playwright_close", "playwright_get_visible_text", "playwright_get_visible_html", "playwright_go_back", "playwright_go_forward", "playwright_drag", "playwright_press_key", "playwright_wait", "playwright_resize_window", "playwright_scroll", "playwright_new_tab", "playwright_close_tab", "playwright_switch_tab", "playwright_expect_response", "playwright_assert_response", "playwright_custom_user_agent", "playwright_get_attribute", "playwright_get_property", "playwright_upload_file", "playwright_check", "playwright_uncheck"],
   "model": null
 } 
