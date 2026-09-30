@@ -1130,6 +1130,27 @@ footer {
 }
 
 /* Link do header para /versao */
+.header-dashboard-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.header-dashboard-link:hover {
+  background: var(--bg-primary);
+  color: var(--accent-success);
+  border-color: var(--accent-success);
+}
+
 .header-versao-link {
   display: flex;
   align-items: center;

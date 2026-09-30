@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { FaSun, FaMoon, FaInfoCircle } from "react-icons/fa";
+import { FaSun, FaMoon, FaInfoCircle, FaChartPie } from "react-icons/fa";
 import { useTheme } from "../contexts/ThemeContext.jsx";
 import VersionInfo from "./VersionInfo";
 
@@ -11,6 +11,9 @@ const Header = ({ title }) => {
     <header className="header">
       <h1>{title}</h1>
       <div className="header-controls">
+        <Link to="/dashboard" className="header-dashboard-link" title="Ver Dashboard">
+          <FaChartPie />
+        </Link>
         <Link to="/versao" className="header-versao-link" title="Ver informações da API">
           <FaInfoCircle />
         </Link>
