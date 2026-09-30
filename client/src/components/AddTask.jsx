@@ -1,9 +1,16 @@
 import React, { useState } from "react";
+import DatePicker, { registerLocale } from "react-datepicker";
+import { ptBR } from "date-fns/locale/pt-BR";
+import "react-datepicker/dist/react-datepicker.css";
 import Modal from "./Modal";
+
+// Registra o locale pt-BR para exibição do calendário em português
+registerLocale("pt-BR", ptBR);
 
 const AddTask = ({ onAdd }) => {
   const [titulo, setTitulo] = useState("");
-  const [dia, setDia] = useState("");
+  // dia agora é um objeto Date (ou null), em vez de string
+  const [dia, setDia] = useState(null);
   const [importante, setImportante] = useState(true);
   const [showModal, setShowModal] = useState(false);
 
@@ -15,14 +22,20 @@ const AddTask = ({ onAdd }) => {
       return;
     }
 
-    onAdd({ 
-      titulo: titulo.trim(), 
-      dia_atividade: dia || new Date().toLocaleDateString('pt-BR'), 
-      importante 
+    // Converte o objeto Date para string no formato pt-BR (DD/MM/YYYY)
+    // Se nenhuma data for selecionada, usa a data atual
+    const diaFormatado = dia
+      ? dia.toLocaleDateString("pt-BR")
+      : new Date().toLocaleDateString("pt-BR");
+
+    onAdd({
+      titulo: titulo.trim(),
+      dia_atividade: diaFormatado,
+      importante,
     });
 
     setTitulo("");
-    setDia("");
+    setDia(null);
     setImportante(true);
   };
 
@@ -37,17 +50,31 @@ const AddTask = ({ onAdd }) => {
           onChange={(e) => setTitulo(e.target.value)}
         />
       </div>
-      
+
       <div className="form-control">
         <label>Data/Prazo</label>
-        <input
-          type="text"
-          placeholder="Quando?"
-          value={dia}
-          onChange={(e) => setDia(e.target.value)}
+        {/*
+          DatePicker substitui o input de texto.
+          - selected: recebe o objeto Date (ou null)
+          - onChange: atualiza o estado com o objeto Date selecionado
+          - dateFormat: exibe no formato DD/MM/YYYY
+          - locale: exibe o calendário em português brasileiro
+          - placeholderText: texto de placeholder quando nenhuma data está selecionada
+          - A conversão para string pt-BR acontece no onSubmit antes de enviar ao backend
+        */}
+        <DatePicker
+          selected={dia}
+          onChange={(date) => setDia(date)}
+          dateFormat="dd/MM/yyyy"
+          locale="pt-BR"
+          placeholderText="Quando?"
+          className="datepicker-input"
+          calendarClassName="datepicker-calendar"
+          wrapperClassName="datepicker-wrapper"
+          autoComplete="off"
         />
       </div>
-      
+
       <div className="form-control-check">
         <input
           type="checkbox"
@@ -57,11 +84,11 @@ const AddTask = ({ onAdd }) => {
         />
         <label htmlFor="importante">Importante</label>
       </div>
-      
+
       <button type="submit" className="btn btn-block success">
         Add New Task
       </button>
-      
+
       <Modal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
