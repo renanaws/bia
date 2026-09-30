@@ -10,6 +10,7 @@ import Modal from "./components/Modal.jsx";
 import About from "./components/About.jsx";
 import Versao from "./components/Versao.jsx";
 import DebugLogs from "./components/DebugLogs.jsx";
+import Dashboard from "./components/Dashboard.jsx";
 
 const apiUrl = import.meta.env.VITE_API_URL || "http://localhost:8080";
 
@@ -247,6 +248,7 @@ function AppContent() {
             <Route path="/" element={<HomePage />} />
             <Route path="/about" element={<About />} />
             <Route path="/versao" element={<Versao />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
           <Footer />
         </div>
